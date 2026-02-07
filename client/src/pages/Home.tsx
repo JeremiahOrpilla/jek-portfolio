@@ -137,7 +137,7 @@ export default function Home() {
         <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-amber-50 via-white to-yellow-50">
           <div className="absolute inset-0 opacity-40" style={{ backgroundImage: `url(${heroBgUrl})`, backgroundSize: 'cover', backgroundPosition: 'center' }}></div>
           <div className="container text-center relative z-10 animate-fade-in">
-            <div className="mb-6 text-6xl md:text-8xl font-bold warm-glow animate-glow-pulse">📊 Hello, Data Explorer! 📈</div>
+            <div className="mb-6 text-6xl md:text-8xl font-bold warm-glow animate-glow-pulse">📊 Hello, I'm Jek! </br> I do Graphs and Tables📈</div>
             <div className="text-2xl md:text-4xl font-bold mb-4 text-amber-700">Data Analyst & Full-Stack Developer</div>
             <p className="text-lg md:text-xl text-gray-700 mb-8 max-w-2xl mx-auto">Turning raw data into actionable insights and building tools to make sense of the numbers. Welcome to my corner of the internet!</p>
             <button onClick={() => scrollToSection('about')} className="px-8 py-3 bg-amber-400 hover:bg-amber-500 text-gray-900 font-bold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">Explore My Work ↓</button>
