@@ -36,18 +36,18 @@ export default function Home() {
   ];
 
   const skills = [
-    { name: 'Python', level: 95, icon: '🐍', category: 'Programming' },
+    { name: 'Python', level: 80, icon: '🐍', category: 'Programming' },
     { name: 'Data Analysis', level: 93, icon: '📈', category: 'Analytics' },
     { name: 'SQL', level: 92, icon: '🗄️', category: 'Databases' },
-    { name: 'Machine Learning', level: 88, icon: '🤖', category: 'AI/ML' },
+    { name: 'Anything Under the Sun', level: 99, icon: '☀️', category: 'Generalist' },
     { name: 'Data Visualization', level: 90, icon: '📊', category: 'Analytics' },
-    { name: 'JavaScript/React', level: 87, icon: '⚛️', category: 'Web Dev' },
+    { name: 'Supervising', level: 100, icon: '🤓', category: 'Doing the work of my Supervisor' },
   ];
 
   const experience = [
-    { title: 'Senior Data Analyst', company: 'Tech Analytics Corp', year: '2022 - Present', description: 'Building data pipelines and dashboards that drive business decisions', icon: '📊' },
-    { title: 'Full Stack Developer', company: 'StartUp Labs', year: '2020 - 2022', description: 'Developed web apps with data-driven features and real-time analytics', icon: '💻' },
-    { title: 'Junior Data Scientist', company: 'Data Insights Inc', year: '2018 - 2020', description: 'Explored datasets, built predictive models, and learned the craft', icon: '📚' },
+    { title: 'Project Technical Assistant', company: 'Department of Science and Technology II', year: '2024 - Present', description: 'Building data and dashboards of the DOST Small Enterprise Technology Upgrading Program', icon: '📊' },
+    { title: 'Technical Support', company: 'Foundever Asia Inc.', year: '2024', description: 'Handled technical support requests, providing troubleshooting assistance for client devices, accounts, and software/network-related issues', icon: '💻' },
+    { title: 'Database Management Officer', company: 'Department of Environment and Natural Resources II', year: '2023 - 2024', description: 'Development, organization, maintenance updating, automation, and enhancement of the DENR National Greening Program (NGP) records', icon: '📚' },
   ];
 
   const insights = [
@@ -69,11 +69,11 @@ export default function Home() {
   ];
 
   const socialLinks = [
-    { name: 'GitHub', url: 'https://github.com', icon: '🐙' },
-    { name: 'LinkedIn', url: 'https://linkedin.com', icon: '💼' },
-    { name: 'Twitter', url: 'https://twitter.com', icon: '𝕏' },
-    { name: 'Kaggle', url: 'https://kaggle.com', icon: '🏆' },
-    { name: 'Email', url: 'mailto:your.email@gmail.com', icon: '✉️' },
+    { name: 'GitHub', url: 'https://github.com/JeremiahOrpilla', icon: '🐙' },
+    { name: 'LinkedIn', url: 'https://linkedin.com/jeremiah-orpilla-b612322b7', icon: '💼' },
+    { name: 'Facebook', url: 'https://facebook.com/jeremiahorpilla00', icon: 'FB' },
+    { name: 'Instagram', url: 'https://instagram.com/jekcatsu', icon: 'IG' },
+    { name: 'Email', url: 'https://mail.google.com/mail/?view=cm&fs=1&to=jeremiahorpilla00@gmail.com', icon: '✉️' },
   ];
 
   const [randomFact, setRandomFact] = useState(funFacts[0]);
@@ -110,7 +110,7 @@ export default function Home() {
 
       <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur border-b border-amber-100 shadow-sm">
         <div className="container flex items-center justify-between h-16">
-          <div className="text-2xl font-bold warm-glow">&lt;Data &amp; Code&gt;</div>
+          <div className="text-2xl font-bold warm-glow">Jek.dev</div>
           <div className="hidden md:flex gap-2">
             {navItems.map((item) => (
               <button key={item.id} onClick={() => scrollToSection(item.id)} className={`px-4 py-2 rounded transition-all duration-300 ${activeSection === item.id ? 'bg-amber-400 text-gray-900 font-semibold shadow-md' : 'hover:bg-amber-50 hover:border hover:border-amber-200 text-gray-700'}`}>
@@ -242,16 +242,16 @@ export default function Home() {
               </div>
               <div className="space-y-4">
                 <div className="p-6 bg-white rounded-lg border border-amber-100 hover:border-amber-300 transition-all duration-300 hover:shadow-lg hover:shadow-amber-100 group cursor-pointer">
-                  <p className="text-lg font-bold text-amber-700 group-hover:text-amber-900 transition-colors">Q: Why do data scientists make terrible comedians?</p>
-                  <p className="text-gray-700 mt-2">A: Because their jokes have no statistical significance! 📊</p>
+                  <p className="text-lg font-bold text-amber-700 group-hover:text-amber-900 transition-colors">Q: Who owns the West Philippine Sea (WPS)?</p>
+                  <p className="text-gray-700 mt-2">A: Mufasa—because everything the light touches is his kingdom. 💡</p>
                 </div>
                 <div className="p-6 bg-white rounded-lg border border-amber-100 hover:border-amber-300 transition-all duration-300 hover:shadow-lg hover:shadow-amber-100 group cursor-pointer">
-                  <p className="text-lg font-bold text-amber-700 group-hover:text-amber-900 transition-colors">Q: How many programmers does it take to change a light bulb?</p>
-                  <p className="text-gray-700 mt-2">A: None, that is a hardware problem! But they will spend 3 hours debugging the socket. 💡</p>
+                  <p className="text-lg font-bold text-amber-700 group-hover:text-amber-900 transition-colors">Q: What do you call a supervisor who delegates 100% of her tasks?</p>
+                  <p className="text-gray-700 mt-2">A: "Inspirer"—because she inspires me to do her job and mine at the same time. 🧠</p>
                 </div>
                 <div className="p-6 bg-white rounded-lg border border-amber-100 hover:border-amber-300 transition-all duration-300 hover:shadow-lg hover:shadow-amber-100 group cursor-pointer">
-                  <p className="text-lg font-bold text-amber-700 group-hover:text-amber-900 transition-colors">Q: What is a programmer's favorite hangout place?</p>
-                  <p className="text-gray-700 mt-2">A: Stack Overflow (where all the answers are, and so are the questions)! 🔗</p>
+                  <p className="text-lg font-bold text-amber-700 group-hover:text-amber-900 transition-colors">Q: Why is our agency management like a dog guarding a bone?</p>
+                  <p className="text-gray-700 mt-2">A: Because they didn't buy the bone, they don't know how to use the bone, but they'll growl at anyone who asks to take a fair bite. 🦴</p>
                 </div>
               </div>
             </div>
@@ -283,7 +283,7 @@ export default function Home() {
       <footer className="bg-amber-50 border-t border-amber-200 py-8 text-center">
         <div className="container">
           <p className="text-gray-700 mb-2">Made with <Heart className="inline text-amber-500" size={16} /> and <span className="font-mono">code</span> by a data enthusiast</p>
-          <p className="text-sm text-gray-600">© 2024 Data & Code Portfolio. All insights reserved.</p>
+          <p className="text-sm text-gray-600">© 2026 Jeremiah Orpilla Portfolio. All insights reserved.</p>
         </div>
       </footer>
     </div>
