@@ -2,6 +2,6 @@
   "private": true,
   "name": "jek-portfolio-root",
   "scripts": {
-    "build": "cd client && pnpm install && pnpm build"
+    "build": "cd client && npm install && npm run build"
   }
 }
