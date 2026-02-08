@@ -137,7 +137,7 @@ export default function Home() {
         <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-amber-50 via-white to-yellow-50">
           <div className="absolute inset-0 opacity-40" style={{ backgroundImage: `url(${heroBgUrl})`, backgroundSize: 'cover', backgroundPosition: 'center' }}></div>
           <div className="container text-center relative z-10 animate-fade-in">
-            <div className="mb-6 text-6xl md:text-8xl font-bold warm-glow animate-glow-pulse">📊 Hello, I'm Jek! </br> I do Graphs and Tables📈</div>
+            <div className="mb-6 text-6xl md:text-8xl font-bold warm-glow animate-glow-pulse">📊 Hello, I'm Jek! <br /> I do Graphs and Tables📈</div>
             <div className="text-2xl md:text-4xl font-bold mb-4 text-amber-700">Data Analyst & Full-Stack Developer</div>
             <p className="text-lg md:text-xl text-gray-700 mb-8 max-w-2xl mx-auto">Turning raw data into actionable insights and building tools to make sense of the numbers. Welcome to my corner of the internet!</p>
             <button onClick={() => scrollToSection('about')} className="px-8 py-3 bg-amber-400 hover:bg-amber-500 text-gray-900 font-bold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">Explore My Work ↓</button>
@@ -174,7 +174,7 @@ export default function Home() {
             <h2 className="text-5xl md:text-6xl font-bold mb-12 text-center warm-glow">Technical Toolkit</h2>
             <div className="grid md:grid-cols-2 gap-8">
               {skills.map((skill, index) => (
-                <div key={skill.name} className="group p-6 bg-white rounded-lg border border-amber-100 hover:border-amber-300 transition-all duration-300 hover:shadow-lg hover:shadow-amber-200/50 animate-scale-in" style={{ animationDelay: `${index * 0.1}s` }}>
+                <div key={skill.name} className="p-6 bg-white rounded-lg border border-amber-100 hover:border-amber-400 transition-all duration-300 hover:shadow-lg hover:shadow-amber-100 group animate-fade-in" style={{ animationDelay: `${index * 0.1}s` }}>
                   <div className="flex items-center justify-between mb-4">
                     <div className="flex items-center gap-3">
                       <span className="text-3xl">{skill.icon}</span>
@@ -273,7 +273,7 @@ export default function Home() {
               <div className="bg-amber-50 p-8 rounded-lg border-2 border-amber-300 text-center">
                 <h3 className="text-2xl font-bold text-amber-700 mb-4">Got a data challenge?</h3>
                 <p className="text-gray-700 mb-6">Whether you need data analysis, a custom dashboard, or a full-stack solution, I am excited to collaborate. Let us turn your data into insights!</p>
-                <a href="mailto:your.email@gmail.com" className="inline-block px-8 py-3 bg-amber-400 hover:bg-amber-500 text-gray-900 font-bold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-lg">📧 Send Me a Message</a>
+                <a href="mailto:jeremiahorpilla00@gmail.com" className="inline-block px-8 py-3 bg-amber-400 hover:bg-amber-500 text-gray-900 font-bold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-lg">📧 Send Me a Message</a>
               </div>
             </div>
           </div>
