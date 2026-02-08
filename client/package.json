@@ -1,6 +1,11 @@
 {
   "name": "jek.dev",
   "version": "1.0.0",
+  "engines": {
+    "node": "18.x"
+  },
+  "packageManager": "pnpm@9.12.3",
+
   "description": "Jeremiah Orpilla's personal portfolio - A playful, interactive portfolio showcasing data analytics and programming expertise",
   "author": "Jeremiah Orpilla <jeremiahorpilla00@gmail.com>",
   "repository": {
@@ -10,6 +15,7 @@
   "homepage": "https://jek.dev",
   "type": "module",
   "license": "MIT",
+
   "scripts": {
     "dev": "vite --host",
     "build": "vite build",
@@ -18,6 +24,7 @@
     "check": "tsc --noEmit",
     "format": "prettier --write ."
   },
+
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
     "@radix-ui/react-accordion": "^1.2.12",
@@ -71,6 +78,7 @@
     "wouter": "^3.3.5",
     "zod": "^4.1.12"
   },
+
   "devDependencies": {
     "@builder.io/vite-plugin-jsx-loc": "^0.1.1",
     "@tailwindcss/typography": "^0.5.15",
@@ -87,7 +95,7 @@
     "vite": "^7.1.7",
     "vite-plugin-manus-runtime": "^0.0.57"
   },
-  "packageManager": "pnpm@10.4.1+sha512.c753b6c3ad7afa13af388fa6d808035a008e30ea9993f58c6663e2bc5ff21679aa834db094987129aa4d488b86df57f7b634981b2f827cdcacc698cc0cfb88af",
+
   "pnpm": {
     "overrides": {
       "tailwindcss>nanoid": "3.3.7"
