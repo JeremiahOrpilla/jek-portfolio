@@ -4,7 +4,6 @@
   "engines": {
   "node": "24.x"
   },
-  "packageManager": "pnpm@10.6.0",
   "description": "Jeremiah Orpilla's personal portfolio - A playful, interactive portfolio showcasing data analytics and programming expertise",
   "author": "Jeremiah Orpilla <jeremiahorpilla00@gmail.com>",
   "repository": {
