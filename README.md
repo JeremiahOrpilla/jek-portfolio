@@ -70,6 +70,9 @@ pnpm preview
 ```
 jek.dev/
 ├── client/
+│   ├── package.json          # Project dependencies
+│   ├── vite.config.ts        # Vite configuration
+│   ├── tsconfig.json         # TypeScript configuration
 │   ├── public/           # Static assets
 │   ├── src/
 │   │   ├── pages/        # Page components
@@ -79,9 +82,7 @@ jek.dev/
 │   │   └── index.css     # Global styles and theme
 │   └── index.html        # HTML template
 ├── server/               # Backend server (Express)
-├── package.json          # Project dependencies
-├── vite.config.ts        # Vite configuration
-└── tsconfig.json         # TypeScript configuration
+
 ```
 
 ## 🎯 Customization
