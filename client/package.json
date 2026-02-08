@@ -2,10 +2,9 @@
   "name": "jek.dev",
   "version": "1.0.0",
   "engines": {
-    "node": "24.x"
+  "node": "24.x"
   },
-  "packageManager": "pnpm@9.12.3",
-
+  "packageManager": "pnpm@10.4.1",
   "description": "Jeremiah Orpilla's personal portfolio - A playful, interactive portfolio showcasing data analytics and programming expertise",
   "author": "Jeremiah Orpilla <jeremiahorpilla00@gmail.com>",
   "repository": {
