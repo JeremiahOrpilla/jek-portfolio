@@ -226,8 +226,12 @@ export default function Home() {
               <div className="relative">
                 <div className="aspect-square rounded-2xl bg-gradient-to-br from-primary to-accent opacity-10 absolute -inset-4 rotate-3" />
                 <div className="relative glass-card rounded-2xl p-8 flex flex-col items-center justify-center text-center space-y-4">
-                  <div className="w-24 h-24 rounded-full bg-primary/20 flex items-center justify-center">
-                    <User className="w-12 h-12 text-primary" />
+                  <div className="w-32 h-32 rounded-full border-4 border-primary/20 overflow-hidden bg-background shadow-lg">
+                    <img 
+                      src="/avatar.png" 
+                      alt="Jeremiah Orpilla" 
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                   <h3 className="text-xl font-bold">Jeremiah Orpilla</h3>
                   <p className="text-sm text-muted-foreground">Based in Cagayan Valley, Philippines</p>
