@@ -34,7 +34,7 @@ export default function Home() {
     { name: 'Data Analysis', level: 93, icon: <LineChart className="text-teal-500" />, category: 'Analytics' },
     { name: 'SQL', level: 92, icon: <Database className="text-indigo-500" />, category: 'Databases' },
     { name: 'Data Visualization', level: 90, icon: <BarChart3 className="text-pink-500" />, category: 'Analytics' },
-    { name: 'Full-Stack Dev', level: 80, icon: <Zap className="text-yellow-500" />, category: 'Development' },
+    { name: 'Full-Stack Dev', level: 60, icon: <Zap className="text-yellow-500" />, category: 'Development' },
     { name: 'Project Management', level: 88, icon: <Briefcase className="text-slate-500" />, category: 'Management' },
   ];
 
@@ -111,7 +111,7 @@ export default function Home() {
         <div className="container flex items-center justify-between h-16">
           <div className="text-xl font-bold tracking-tight text-primary flex items-center gap-2">
             <Code2 className="w-6 h-6" />
-            <span>Jek.dev</span>
+            <span>jek.sys</span>
           </div>
           <div className="hidden md:flex items-center gap-1">
             {navItems.map((item) => (
@@ -166,7 +166,7 @@ export default function Home() {
               I build data-driven solutions.
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-              Data Analyst & Full-Stack Developer specializing in turning complex datasets into 
+              Data Analyst & programmer specializing in turning complex datasets into 
               intuitive, high-performance applications and actionable insights.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -218,8 +218,8 @@ export default function Home() {
                     <div className="text-xs text-muted-foreground uppercase font-bold tracking-widest">Years Experience</div>
                   </div>
                   <div className="p-4 rounded-lg bg-background border border-border">
-                    <div className="text-primary font-bold text-2xl">50+</div>
-                    <div className="text-xs text-muted-foreground uppercase font-bold tracking-widest">Projects Completed</div>
+                    <div className="text-primary font-bold text-2xl">5+</div>
+                    <div className="text-xs text-muted-foreground uppercase font-bold tracking-widest">Organizations Supported</div>
                   </div>
                 </div>
               </div>
@@ -290,7 +290,7 @@ export default function Home() {
         {/* Experience Section */}
         <section id="experience" className="py-24 bg-secondary/30">
           <div className="container space-y-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-center">Work Experience</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-center">IT Work Experience</h2>
             <div className="max-w-3xl mx-auto space-y-8">
               {experience.map((item, idx) => (
                 <div key={idx} className="relative pl-8 border-l-2 border-border pb-8 last:pb-0">
@@ -413,7 +413,7 @@ export default function Home() {
         <div className="container flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
           <div className="flex items-center gap-2 font-bold text-foreground">
             <Code2 className="w-4 h-4" />
-            Jek.dev
+            jek.sys
           </div>
           <div>Built with React, Vite, and Tailwind CSS</div>
           <div className="flex gap-4">
