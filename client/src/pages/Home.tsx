@@ -159,14 +159,14 @@ export default function Home() {
           <div className="container relative z-10 text-center space-y-8 animate-fade-in">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider">
               <Zap className="w-3 h-3" />
-              Available for new projects
+              Let’s Make Sense of the Numbers
             </div>
             <h1 className="text-5xl md:text-7xl font-bold tracking-tight">
               Hi, I'm <span className="text-primary">Jeremiah</span>. <br />
               I build data-driven solutions.
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-              Data Analyst & programmer specializing in turning complex datasets into 
+              Data Analyst & Programmer specializing in turning complex datasets into 
               intuitive, high-performance applications and actionable insights.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
