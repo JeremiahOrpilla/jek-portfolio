@@ -57,7 +57,7 @@ export default function Home() {
       title: 'Database Management Officer', 
       company: 'Department of Environment and Natural Resources II', 
       year: '2023 - 2024', 
-      description: 'Led the development and automation of the National Greening Program (NGP) records system.',
+      description: 'Handled data processing and records management for the National Greening Program (NGP), including database updates and data validation.',
       icon: <Database className="w-6 h-6" /> 
     },
   ];
