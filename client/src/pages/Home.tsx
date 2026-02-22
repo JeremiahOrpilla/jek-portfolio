@@ -2,7 +2,8 @@ import { useState, useEffect, useRef } from 'react';
 import { 
   Menu, X, Github, Linkedin, Facebook, Instagram, Mail, 
   BarChart3, User, Zap, Briefcase, Lightbulb, PartyPopper, 
-  Send, Database, Code2, LineChart, ChevronRight, ExternalLink
+  Send, Database, Code2, LineChart, ChevronRight, ExternalLink,
+  FolderOpen
 } from 'lucide-react';
 
 export default function Home() {
@@ -24,6 +25,7 @@ export default function Home() {
     { id: 'about', label: 'About', icon: <User className="w-4 h-4" /> },
     { id: 'skills', label: 'Skills', icon: <Zap className="w-4 h-4" /> },
     { id: 'experience', label: 'Experience', icon: <Briefcase className="w-4 h-4" /> },
+    { id: 'projects', label: 'Projects', icon: <FolderOpen className="w-4 h-4" /> },
     { id: 'insights', label: 'Insights', icon: <Lightbulb className="w-4 h-4" /> },
     { id: 'fun', label: 'Fun', icon: <PartyPopper className="w-4 h-4" /> },
     { id: 'contact', label: 'Contact', icon: <Send className="w-4 h-4" /> },
@@ -59,6 +61,45 @@ export default function Home() {
       year: '2023 - 2024', 
       description: 'Handled data processing and records management for the National Greening Program (NGP), including database updates and data validation.',
       icon: <Database className="w-6 h-6" /> 
+    },
+  ];
+
+  const projects = [
+    {
+      title: 'SETUP Guru',
+      subtitle: 'Knowledge Management App',
+      description: 'A searchable knowledge base built for SETUP program staff and coordinators, designed to replace the need to manually browse a 102-page government guideline PDF. Cards are sourced directly from the SETUP ver 3.0 Guidelines with exact citations (section and page number), and the search engine returns the most relevant card first, followed by related references.',
+      features: [
+        'Live search with instant suggestions',
+        'Exact guideline citations (section & page)',
+        'Cross-referenced knowledge cards',
+        'Personal bookmarking system',
+        '55 structured knowledge cards',
+      ],
+      stack: ['React', 'TypeScript', 'TailwindCSS', 'tRPC', 'MySQL'],
+      image: '/setup-guru.png',
+      category: 'Knowledge Management',
+      color: 'from-blue-500/20 to-indigo-500/20',
+      accent: 'text-blue-500',
+      border: 'border-blue-500/20',
+    },
+    {
+      title: 'SETUP Monitoring Dashboard',
+      subtitle: 'Project Tracking & Impact Assessment Platform',
+      description: 'Real-time monitoring platform for DOST SETUP program tracking 1000+ funded MSME projects across Region 2. Consolidates project lifecycle data, beneficiary profiles, equipment procurement compliance, and multi-year impact metrics.',
+      features: [
+        'Executive dashboards with analytics by municipality',
+        'Timeline tracking for overdue equipment procurement',
+        'Multi-year impact assessment (employment & sales growth)',
+        'Beneficiary profile management',
+        'Proposal management with approval analytics',
+      ],
+      stack: ['React', 'TypeScript', 'TailwindCSS', 'Node.js', 'PostgreSQL', 'Recharts'],
+      image: '/setup-monitoring.png',
+      category: 'Data Analytics Platform',
+      color: 'from-teal-500/20 to-emerald-500/20',
+      accent: 'text-teal-500',
+      border: 'border-teal-500/20',
     },
   ];
 
@@ -159,7 +200,7 @@ export default function Home() {
           <div className="container relative z-10 text-center space-y-8 animate-fade-in">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider">
               <Zap className="w-3 h-3" />
-              Let’s Make Sense of the Numbers
+              Let's Make Sense of the Numbers
             </div>
             <h1 className="text-5xl md:text-7xl font-bold tracking-tight">
               Hi, I'm <span className="text-primary">Jeremiah</span>. <br />
@@ -171,10 +212,10 @@ export default function Home() {
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <button 
-                onClick={() => scrollToSection('about')} 
+                onClick={() => scrollToSection('projects')} 
                 className="px-8 py-3 bg-primary text-primary-foreground font-bold rounded-md hover:opacity-90 transition-all flex items-center gap-2"
               >
-                View Portfolio <ChevronRight className="w-4 h-4" />
+                View Projects <ChevronRight className="w-4 h-4" />
               </button>
               <div className="flex items-center gap-4">
                 {socialLinks.slice(0, 2).map((link) => (
@@ -314,8 +355,87 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Projects Section */}
+        <section id="projects" className="py-24">
+          <div className="container space-y-12">
+            <div className="text-center space-y-4">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider">
+                <FolderOpen className="w-3 h-3" />
+                Featured Work
+              </div>
+              <h2 className="text-3xl md:text-4xl font-bold">Projects</h2>
+              <p className="text-muted-foreground max-w-2xl mx-auto">
+                Real-world applications built for the DOST SETUP program — solving operational 
+                challenges with data-driven software.
+              </p>
+            </div>
+
+            <div className="space-y-16">
+              {projects.map((project, idx) => (
+                <div 
+                  key={idx} 
+                  className={`rounded-2xl border ${project.border} bg-gradient-to-br ${project.color} overflow-hidden`}
+                >
+                  <div className={`grid lg:grid-cols-2 gap-0 ${idx % 2 === 1 ? 'lg:grid-flow-dense' : ''}`}>
+                    {/* Screenshot */}
+                    <div className={`relative overflow-hidden bg-background/40 ${idx % 2 === 1 ? 'lg:col-start-2' : ''}`}>
+                      <div className="absolute inset-0 bg-gradient-to-b from-transparent to-background/20 z-10" />
+                      <img
+                        src={project.image}
+                        alt={`${project.title} screenshot`}
+                        className="w-full h-full object-cover object-top min-h-[280px] lg:min-h-[420px]"
+                      />
+                    </div>
+
+                    {/* Content */}
+                    <div className={`p-8 lg:p-10 flex flex-col justify-center space-y-6 ${idx % 2 === 1 ? 'lg:col-start-1 lg:row-start-1' : ''}`}>
+                      <div className="space-y-2">
+                        <div className={`text-xs font-bold uppercase tracking-widest ${project.accent}`}>
+                          {project.category}
+                        </div>
+                        <h3 className="text-2xl md:text-3xl font-bold">{project.title}</h3>
+                        <p className="text-sm font-medium text-muted-foreground">{project.subtitle}</p>
+                      </div>
+
+                      <p className="text-muted-foreground leading-relaxed">
+                        {project.description}
+                      </p>
+
+                      <div className="space-y-3">
+                        <div className="text-xs font-bold uppercase tracking-widest text-muted-foreground">Key Features</div>
+                        <ul className="space-y-2">
+                          {project.features.map((feature, fIdx) => (
+                            <li key={fIdx} className="flex items-start gap-2 text-sm text-muted-foreground">
+                              <ChevronRight className={`w-4 h-4 mt-0.5 shrink-0 ${project.accent}`} />
+                              {feature}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+
+                      <div className="space-y-3">
+                        <div className="text-xs font-bold uppercase tracking-widest text-muted-foreground">Tech Stack</div>
+                        <div className="flex flex-wrap gap-2">
+                          {project.stack.map((tech) => (
+                            <span 
+                              key={tech} 
+                              className="px-3 py-1 rounded-full text-xs font-bold bg-background/60 border border-border text-foreground"
+                            >
+                              {tech}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* Insights Section */}
-        <section id="insights" className="py-24">
+        <section id="insights" className="py-24 bg-secondary/30">
           <div className="container space-y-12">
             <h2 className="text-3xl md:text-4xl font-bold text-center">Insights & Philosophy</h2>
             <div className="grid md:grid-cols-2 gap-6">
