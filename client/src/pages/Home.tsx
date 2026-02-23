@@ -370,61 +370,60 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="space-y-16">
+            <div className="grid md:grid-cols-2 gap-8">
               {projects.map((project, idx) => (
-                <div 
-                  key={idx} 
-                  className={`rounded-2xl border ${project.border} bg-gradient-to-br ${project.color} overflow-hidden`}
+                <div
+                  key={idx}
+                  className={`rounded-2xl border ${project.border} bg-gradient-to-br ${project.color} flex flex-col overflow-hidden`}
                 >
-                  <div className={`grid lg:grid-cols-2 gap-0 ${idx % 2 === 1 ? 'lg:grid-flow-dense' : ''}`}>
-                    {/* Screenshot */}
-                    <div className={`relative overflow-hidden bg-background/40 ${idx % 2 === 1 ? 'lg:col-start-2' : ''}`}>
-                      <div className="absolute inset-0 bg-gradient-to-b from-transparent to-background/20 z-10" />
+                  {/* Screenshot — fully visible with padding */}
+                  <div className="p-4 pb-0">
+                    <div className="rounded-xl overflow-hidden border border-border/40 bg-background shadow-sm">
                       <img
                         src={project.image}
                         alt={`${project.title} screenshot`}
-                        className="w-full h-full object-cover object-top min-h-[280px] lg:min-h-[420px]"
+                        className="w-full h-auto object-contain object-top"
                       />
                     </div>
+                  </div>
 
-                    {/* Content */}
-                    <div className={`p-8 lg:p-10 flex flex-col justify-center space-y-6 ${idx % 2 === 1 ? 'lg:col-start-1 lg:row-start-1' : ''}`}>
-                      <div className="space-y-2">
-                        <div className={`text-xs font-bold uppercase tracking-widest ${project.accent}`}>
-                          {project.category}
-                        </div>
-                        <h3 className="text-2xl md:text-3xl font-bold">{project.title}</h3>
-                        <p className="text-sm font-medium text-muted-foreground">{project.subtitle}</p>
+                  {/* Content */}
+                  <div className="p-6 flex flex-col gap-4 flex-1">
+                    <div className="space-y-1">
+                      <div className={`text-xs font-bold uppercase tracking-widest ${project.accent}`}>
+                        {project.category}
                       </div>
+                      <h3 className="text-xl font-bold">{project.title}</h3>
+                      <p className="text-sm font-medium text-muted-foreground">{project.subtitle}</p>
+                    </div>
 
-                      <p className="text-muted-foreground leading-relaxed">
-                        {project.description}
-                      </p>
+                    <p className="text-sm text-muted-foreground leading-relaxed">
+                      {project.description}
+                    </p>
 
-                      <div className="space-y-3">
-                        <div className="text-xs font-bold uppercase tracking-widest text-muted-foreground">Key Features</div>
-                        <ul className="space-y-2">
-                          {project.features.map((feature, fIdx) => (
-                            <li key={fIdx} className="flex items-start gap-2 text-sm text-muted-foreground">
-                              <ChevronRight className={`w-4 h-4 mt-0.5 shrink-0 ${project.accent}`} />
-                              {feature}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
+                    <div className="space-y-2">
+                      <div className="text-xs font-bold uppercase tracking-widest text-muted-foreground">Key Features</div>
+                      <ul className="space-y-1.5">
+                        {project.features.map((feature, fIdx) => (
+                          <li key={fIdx} className="flex items-start gap-2 text-sm text-muted-foreground">
+                            <ChevronRight className={`w-4 h-4 mt-0.5 shrink-0 ${project.accent}`} />
+                            {feature}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
 
-                      <div className="space-y-3">
-                        <div className="text-xs font-bold uppercase tracking-widest text-muted-foreground">Tech Stack</div>
-                        <div className="flex flex-wrap gap-2">
-                          {project.stack.map((tech) => (
-                            <span 
-                              key={tech} 
-                              className="px-3 py-1 rounded-full text-xs font-bold bg-background/60 border border-border text-foreground"
-                            >
-                              {tech}
-                            </span>
-                          ))}
-                        </div>
+                    <div className="space-y-2 mt-auto pt-2">
+                      <div className="text-xs font-bold uppercase tracking-widest text-muted-foreground">Tech Stack</div>
+                      <div className="flex flex-wrap gap-2">
+                        {project.stack.map((tech) => (
+                          <span
+                            key={tech}
+                            className="px-3 py-1 rounded-full text-xs font-bold bg-background/60 border border-border text-foreground"
+                          >
+                            {tech}
+                          </span>
+                        ))}
                       </div>
                     </div>
                   </div>
