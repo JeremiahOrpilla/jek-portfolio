@@ -37,7 +37,7 @@ export default function Home() {
     { name: 'SQL', level: 92, icon: <Database className="text-indigo-500" />, category: 'Databases' },
     { name: 'Data Visualization', level: 90, icon: <BarChart3 className="text-pink-500" />, category: 'Analytics' },
     { name: 'Full-Stack Dev', level: 60, icon: <Zap className="text-yellow-500" />, category: 'Development' },
-    { name: 'Project Management', level: 88, icon: <Briefcase className="text-slate-500" />, category: 'Management' },
+    { name: 'Spreadsheets', level: 95, icon: <Briefcase className="text-slate-500" />, category: 'Productivity' },
   ];
 
   const experience = [
