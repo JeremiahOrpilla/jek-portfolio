@@ -3,7 +3,7 @@ import {
   Menu, X, Github, Linkedin, Facebook, Instagram, Mail, 
   BarChart3, User, Zap, Briefcase, Lightbulb, PartyPopper, 
   Send, Database, Code2, LineChart, ChevronRight, ExternalLink,
-  FolderOpen, Sheet
+  FolderOpen, Sheet, GraduationCap, Award, MapPin, Calendar
 } from 'lucide-react';
 
 export default function Home() {
@@ -306,29 +306,80 @@ export default function Home() {
               </div>
               <div className="relative">
                 <div className="aspect-square rounded-2xl bg-gradient-to-br from-primary to-accent opacity-10 absolute -inset-4 rotate-3" />
-                <div className="relative glass-card rounded-2xl p-8 flex flex-col items-center justify-center text-center space-y-4">
-                  <div className="w-32 h-32 rounded-full border-4 border-primary/20 overflow-hidden bg-background shadow-lg">
-                    <img 
-                      src="/avatar.png" 
-                      alt="Jeremiah Orpilla" 
+                <div className="relative glass-card rounded-2xl p-8 flex flex-col items-center text-center space-y-5">
+
+                  {/* Avatar */}
+                  <div className="w-28 h-28 rounded-full border-4 border-primary/20 overflow-hidden bg-background shadow-lg">
+                    <img
+                      src="/avatar.png"
+                      alt="Jeremiah Orpilla"
                       className="w-full h-full object-cover"
                     />
                   </div>
-                  <h3 className="text-xl font-bold">Jeremiah Orpilla</h3>
-                  <p className="text-sm text-muted-foreground">Based in Cagayan Valley, Philippines</p>
+
+                  {/* Name & Location */}
+                  <div className="space-y-1">
+                    <h3 className="text-xl font-bold">Jeremiah Orpilla</h3>
+                    <div className="flex items-center justify-center gap-1 text-sm text-muted-foreground">
+                      <MapPin className="w-3.5 h-3.5 shrink-0" />
+                      <span>Cagayan Valley, Philippines</span>
+                    </div>
+                  </div>
+
+                  {/* Social Links */}
                   <div className="flex gap-2">
                     {socialLinks.map((link) => (
-                      <a 
-                        key={link.name} 
-                        href={link.url} 
-                        target="_blank" 
-                        rel="noopener noreferrer" 
+                      <a
+                        key={link.name}
+                        href={link.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="p-2 rounded-md bg-secondary text-muted-foreground hover:text-primary transition-colors"
+                        title={link.name}
                       >
                         {link.icon}
                       </a>
                     ))}
                   </div>
+
+                  {/* Divider */}
+                  <div className="w-full border-t border-border" />
+
+                  {/* Academic Background */}
+                  <div className="w-full text-left space-y-3">
+                    <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-muted-foreground">
+                      <GraduationCap className="w-3.5 h-3.5" />
+                      Education
+                    </div>
+
+                    <div className="space-y-1">
+                      <p className="font-bold text-sm leading-snug">
+                        BS Information Technology
+                      </p>
+                      <p className="text-xs text-primary font-semibold">
+                        Major in Programming
+                      </p>
+                      <p className="text-xs text-muted-foreground">
+                        Cagayan State University
+                      </p>
+                      <div className="flex items-center gap-1 text-xs text-muted-foreground">
+                        <Calendar className="w-3 h-3 shrink-0" />
+                        <span>Class of 2023</span>
+                      </div>
+                    </div>
+
+                    {/* Award Badge */}
+                    <div className="flex items-start gap-2 p-3 rounded-lg bg-amber-500/10 border border-amber-500/20">
+                      <Award className="w-4 h-4 text-amber-500 shrink-0 mt-0.5" />
+                      <div className="text-left">
+                        <p className="text-xs font-bold text-amber-600 dark:text-amber-400">Meritorious Award</p>
+                        <p className="text-xs text-muted-foreground leading-snug">
+                          Proficient in Java, C#, and Database Programming
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
                 </div>
               </div>
             </div>
