@@ -243,7 +243,7 @@ export default function Home() {
               Let's Make Sense of the Numbers
             </div>
             <h1 className="text-5xl md:text-7xl font-bold tracking-tight">
-              Hi, I'm <span className="text-primary">Jeremiah</span>. <br />
+              Hi, I'm <span className="text-primary">Jek</span>. <br />
               I build data-driven solutions.
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
