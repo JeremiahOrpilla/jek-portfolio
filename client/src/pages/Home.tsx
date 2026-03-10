@@ -170,8 +170,45 @@ export default function Home() {
   const [randomFact, setRandomFact] = useState(funFacts[0]);
   const [showCatFact, setShowCatFact] = useState(false);
   const [isCatDancing, setIsCatDancing] = useState(false);
+  const [isWalking, setIsWalking] = useState(false);
+  const [walkProgress, setWalkProgress] = useState(0);
+  const [storyIndex, setStoryIndex] = useState(-1);
+
+  const storySteps = [
+    "Meow! I'm Jek's assistant. Let me tell you a story...",
+    "Jek graduated from CSU in 2023 with a Meritorious Award in Programming! 🎓",
+    "He's now at DOST building powerful data systems for MSMEs... 📊",
+    "A wizard with Google Sheets, SQL, and Full-Stack Dev! ✨",
+    "Check out his projects below! See you around! 🐾"
+  ];
+
+  const startStory = () => {
+    if (isWalking) return;
+    setIsWalking(true);
+    setStoryIndex(0);
+    setShowCatFact(true);
+    
+    // Sequence the walk and story
+    let step = 0;
+    const interval = setInterval(() => {
+      step += 1;
+      setWalkProgress(prev => prev + 20);
+      setStoryIndex(step);
+      
+      if (step >= storySteps.length) {
+        clearInterval(interval);
+        setTimeout(() => {
+          setIsWalking(false);
+          setShowCatFact(false);
+          setWalkProgress(0);
+          setStoryIndex(-1);
+        }, 3000);
+      }
+    }, 4000);
+  };
 
   const triggerCatFact = () => {
+    if (isWalking) return;
     setRandomFact(funFacts[Math.floor(Math.random() * funFacts.length)]);
     setShowCatFact(true);
     setTimeout(() => setShowCatFact(false), 4000);
@@ -641,35 +678,54 @@ export default function Home() {
 
       {/* Jek Cat Mascot */}
       <div 
-        className="fixed bottom-6 right-6 z-[100] group"
-        onMouseEnter={() => setIsCatDancing(true)}
-        onMouseLeave={() => setIsCatDancing(false)}
+        className="fixed bottom-6 z-[100] transition-all duration-1000 ease-linear"
+        style={{ 
+          right: isWalking ? `${walkProgress}%` : '24px',
+          transform: isWalking ? 'translateX(50%)' : 'none'
+        }}
+        onMouseEnter={() => !isWalking && setIsCatDancing(true)}
+        onMouseLeave={() => !isWalking && setIsCatDancing(false)}
       >
         {/* Speech Bubble */}
-        <div className={`absolute bottom-full right-0 mb-4 w-48 p-3 bg-card border border-border rounded-xl shadow-xl transition-all duration-300 origin-bottom-right ${showCatFact ? 'scale-100 opacity-100' : 'scale-0 opacity-0'}`}>
-          <p className="text-xs leading-relaxed italic">"{randomFact}"</p>
-          <div className="absolute top-full right-6 w-3 h-3 bg-card border-r border-b border-border rotate-45 -mt-1.5" />
+        <div className={`absolute bottom-full mb-4 w-56 p-4 bg-card border border-border rounded-2xl shadow-2xl transition-all duration-500 ${showCatFact ? 'scale-100 opacity-100' : 'scale-0 opacity-0'} ${isWalking ? 'left-1/2 -translate-x-1/2' : 'right-0 origin-bottom-right'}`}>
+          <p className="text-sm leading-relaxed font-medium">
+            {isWalking ? storySteps[storyIndex] : `"${randomFact}"`}
+          </p>
+          <div className={`absolute top-full w-4 h-4 bg-card border-r border-b border-border rotate-45 -mt-2 ${isWalking ? 'left-1/2 -translate-x-1/2' : 'right-8'}`} />
         </div>
 
         {/* The Cat */}
-        <button 
-          onClick={triggerCatFact}
-          className={`relative w-16 h-16 flex items-center justify-center transition-transform duration-300 ${isCatDancing ? 'scale-110' : 'scale-100 hover:scale-105'}`}
-          title="Click for a fun fact!"
-        >
-          <div className={`text-4xl transition-all duration-300 ${isCatDancing ? 'animate-bounce' : ''}`}>
-            {isCatDancing ? '🐱' : '😸'}
-          </div>
+        <div className="relative group">
+          <button 
+            onClick={isWalking ? undefined : startStory}
+            onContextMenu={(e) => { e.preventDefault(); triggerCatFact(); }}
+            className={`relative w-20 h-20 flex items-center justify-center transition-all duration-500 ${isCatDancing || isWalking ? 'scale-110' : 'scale-100 hover:scale-110'}`}
+            title={isWalking ? "I'm telling a story!" : "Click to hear my story, Right-click for a fact!"}
+          >
+            <div className={`text-5xl transition-all duration-300 ${isCatDancing || isWalking ? 'animate-bounce' : ''} ${isWalking ? '-scale-x-100' : ''}`}>
+              {isWalking ? '🐈' : (isCatDancing ? '😸' : '🐱')}
+            </div>
+            
+            {/* Interactive Glow */}
+            <div className={`absolute inset-0 bg-primary/20 blur-xl rounded-full transition-opacity duration-500 ${isWalking ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`} />
+
+            {/* Sparkles */}
+            {(isCatDancing || isWalking) && (
+              <>
+                <div className="absolute -top-4 -left-4 animate-ping text-sm">✨</div>
+                <div className="absolute -top-2 -right-2 animate-pulse text-sm delay-75">✨</div>
+                <div className="absolute -bottom-2 -left-2 animate-pulse text-sm delay-150">✨</div>
+              </>
+            )}
+          </button>
           
-          {/* Dancing Sparkles */}
-          {isCatDancing && (
-            <>
-              <div className="absolute -top-2 -left-2 animate-ping text-xs">✨</div>
-              <div className="absolute -top-1 -right-1 animate-pulse text-xs delay-75">✨</div>
-              <div className="absolute -bottom-1 -left-1 animate-pulse text-xs delay-150">✨</div>
-            </>
+          {/* Instructions Hint */}
+          {!isWalking && (
+            <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 px-2 py-1 bg-background/80 backdrop-blur-sm border border-border rounded text-[10px] font-bold uppercase tracking-tighter opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+              Click to Start Story
+            </div>
           )}
-        </button>
+        </div>
       </div>
 
       {/* Footer */}
