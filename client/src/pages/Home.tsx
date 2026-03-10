@@ -168,13 +168,14 @@ export default function Home() {
   ];
 
   const [randomFact, setRandomFact] = useState(funFacts[0]);
+  const [showCatFact, setShowCatFact] = useState(false);
+  const [isCatDancing, setIsCatDancing] = useState(false);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setRandomFact(funFacts[Math.floor(Math.random() * funFacts.length)]);
-    }, 5000);
-    return () => clearInterval(interval);
-  }, []);
+  const triggerCatFact = () => {
+    setRandomFact(funFacts[Math.floor(Math.random() * funFacts.length)]);
+    setShowCatFact(true);
+    setTimeout(() => setShowCatFact(false), 4000);
+  };
 
   const scrollToSection = (sectionId: string) => {
     setActiveSection(sectionId);
@@ -444,8 +445,11 @@ export default function Home() {
                       <span className="font-bold">{skill.name}</span>
                       <span className="text-sm text-muted-foreground">{skill.level}%</span>
                     </div>
-                    <div className="h-1.5 w-full bg-secondary rounded-full overflow-hidden">
-                      <div className="h-full bg-primary transition-all duration-1000" style={{ width: `${skill.level}%` }} />
+                    <div className="h-2 w-full bg-secondary rounded-full overflow-hidden">
+                      <div 
+                        className="h-full bg-primary transition-all duration-1000" 
+                        style={{ width: `${skill.level}%` }}
+                      />
                     </div>
                   </div>
                 </div>
@@ -455,25 +459,28 @@ export default function Home() {
         </section>
 
         {/* Experience Section */}
-        <section id="experience" className="py-24 bg-secondary/30">
+        <section id="experience" className="py-24 bg-secondary/50">
           <div className="container space-y-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-center">IT Work Experience</h2>
+            <div className="text-center space-y-4">
+              <h2 className="text-3xl md:text-4xl font-bold">Professional Journey</h2>
+              <p className="text-muted-foreground max-w-2xl mx-auto">
+                My career path has been defined by a commitment to data accuracy and impactful digital transformation.
+              </p>
+            </div>
             <div className="max-w-3xl mx-auto space-y-8">
-              {experience.map((item, idx) => (
-                <div key={idx} className="relative pl-8 border-l-2 border-border pb-8 last:pb-0">
-                  <div className="absolute -left-[13px] top-0 p-1 rounded-full bg-background border-2 border-primary">
-                    <div className="w-2 h-2 rounded-full bg-primary" />
+              {experience.map((exp, i) => (
+                <div key={i} className="flex gap-6 group">
+                  <div className="flex flex-col items-center">
+                    <div className="p-3 rounded-full bg-primary text-primary-foreground group-hover:scale-110 transition-transform">
+                      {exp.icon}
+                    </div>
+                    {i !== experience.length - 1 && <div className="w-px h-full bg-border mt-2" />}
                   </div>
-                  <div className="glass-card p-6 rounded-xl space-y-2">
-                    <div className="flex flex-col md:flex-row md:items-center justify-between gap-2">
-                      <h3 className="text-xl font-bold">{item.title}</h3>
-                      <span className="text-sm font-bold text-primary bg-primary/10 px-3 py-1 rounded-full">{item.year}</span>
-                    </div>
-                    <div className="text-muted-foreground font-medium flex items-center gap-2">
-                      <Briefcase className="w-4 h-4" />
-                      {item.company}
-                    </div>
-                    <p className="text-muted-foreground leading-relaxed">{item.description}</p>
+                  <div className="pb-8 space-y-2">
+                    <span className="text-xs font-bold text-primary uppercase tracking-widest">{exp.year}</span>
+                    <h3 className="text-xl font-bold">{exp.title}</h3>
+                    <p className="text-muted-foreground font-medium">{exp.company}</p>
+                    <p className="text-sm text-muted-foreground leading-relaxed">{exp.description}</p>
                   </div>
                 </div>
               ))}
@@ -485,72 +492,49 @@ export default function Home() {
         <section id="projects" className="py-24">
           <div className="container space-y-12">
             <div className="text-center space-y-4">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider">
-                <FolderOpen className="w-3 h-3" />
-                Featured Work
-              </div>
               <h2 className="text-3xl md:text-4xl font-bold">Projects</h2>
               <p className="text-muted-foreground max-w-2xl mx-auto">
-                Real-world applications built for the DOST SETUP program — solving operational 
-                challenges with data-driven software.
+                Real-world applications built for the DOST SETUP program — solving operational challenges with data-driven software.
               </p>
             </div>
-
-            <div className="grid md:grid-cols-2 gap-8">
-              {projects.map((project, idx) => (
-                <div
-                  key={idx}
-                  className={`rounded-2xl border ${project.border} bg-gradient-to-br ${project.color} flex flex-col overflow-hidden`}
-                >
-                  {/* Screenshot — fully visible with padding */}
-                  <div className="p-4 pb-0">
-                    <div className="rounded-xl overflow-hidden border border-border/40 bg-background shadow-sm">
-                      <img
-                        src={project.image}
-                        alt={`${project.title} screenshot`}
-                        className="w-full h-auto object-contain object-top"
+            <div className="grid lg:grid-cols-2 gap-8">
+              {projects.map((project, i) => (
+                <div key={i} className={`group rounded-3xl border border-border bg-card overflow-hidden hover:border-primary/50 transition-all duration-500 hover:shadow-2xl`}>
+                  <div className={`aspect-video w-full overflow-hidden bg-gradient-to-br ${project.color} p-4`}>
+                    <div className="w-full h-full rounded-xl overflow-hidden border border-border shadow-2xl">
+                      <img 
+                        src={project.image} 
+                        alt={project.title} 
+                        className="w-full h-full object-contain transform group-hover:scale-105 transition-transform duration-700"
                       />
                     </div>
                   </div>
-
-                  {/* Content */}
-                  <div className="p-6 flex flex-col gap-4 flex-1">
-                    <div className="space-y-1">
-                      <div className={`text-xs font-bold uppercase tracking-widest ${project.accent}`}>
-                        {project.category}
-                      </div>
-                      <h3 className="text-xl font-bold">{project.title}</h3>
-                      <p className="text-sm font-medium text-muted-foreground">{project.subtitle}</p>
+                  <div className="p-8 space-y-6">
+                    <div className="space-y-2">
+                      <span className={`text-xs font-bold uppercase tracking-widest ${project.accent}`}>{project.category}</span>
+                      <h3 className="text-2xl font-bold group-hover:text-primary transition-colors">{project.title}</h3>
+                      <p className="text-sm text-muted-foreground font-medium">{project.subtitle}</p>
                     </div>
-
                     <p className="text-sm text-muted-foreground leading-relaxed">
                       {project.description}
                     </p>
-
-                    <div className="space-y-2">
-                      <div className="text-xs font-bold uppercase tracking-widest text-muted-foreground">Key Features</div>
-                      <ul className="space-y-1.5">
-                        {project.features.map((feature, fIdx) => (
-                          <li key={fIdx} className="flex items-start gap-2 text-sm text-muted-foreground">
-                            <ChevronRight className={`w-4 h-4 mt-0.5 shrink-0 ${project.accent}`} />
+                    <div className="space-y-3">
+                      <p className="text-xs font-bold uppercase tracking-widest text-muted-foreground">Key Features</p>
+                      <ul className="grid grid-cols-1 gap-2">
+                        {project.features.map((feature, idx) => (
+                          <li key={idx} className="text-xs text-muted-foreground flex items-center gap-2">
+                            <ChevronRight className={`w-3 h-3 ${project.accent}`} />
                             {feature}
                           </li>
                         ))}
                       </ul>
                     </div>
-
-                    <div className="space-y-2 mt-auto pt-2">
-                      <div className="text-xs font-bold uppercase tracking-widest text-muted-foreground">Tech Stack</div>
-                      <div className="flex flex-wrap gap-2">
-                        {project.stack.map((tech) => (
-                          <span
-                            key={tech}
-                            className="px-3 py-1 rounded-full text-xs font-bold bg-background/60 border border-border text-foreground"
-                          >
-                            {tech}
-                          </span>
-                        ))}
-                      </div>
+                    <div className="pt-4 flex flex-wrap gap-2">
+                      {project.stack.map((tech) => (
+                        <span key={tech} className="px-3 py-1 rounded-full bg-secondary text-[10px] font-bold text-muted-foreground uppercase tracking-wider">
+                          {tech}
+                        </span>
+                      ))}
                     </div>
                   </div>
                 </div>
@@ -560,17 +544,22 @@ export default function Home() {
         </section>
 
         {/* Insights Section */}
-        <section id="insights" className="py-24 bg-secondary/30">
+        <section id="insights" className="py-24 bg-secondary/50">
           <div className="container space-y-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-center">Insights & Philosophy</h2>
-            <div className="grid md:grid-cols-2 gap-6">
-              {insights.map((item, idx) => (
-                <div key={idx} className="p-8 rounded-2xl border border-border bg-card hover:shadow-lg transition-shadow space-y-4">
-                  <div className="p-3 w-fit rounded-xl bg-secondary">
-                    {item.icon}
+            <div className="text-center space-y-4">
+              <h2 className="text-3xl md:text-4xl font-bold">Data & Dev Insights</h2>
+              <p className="text-muted-foreground max-w-2xl mx-auto">
+                My core philosophy when it comes to building systems and analyzing data.
+              </p>
+            </div>
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {insights.map((insight, i) => (
+                <div key={i} className="p-8 rounded-2xl bg-background border border-border hover:border-primary/50 transition-all group">
+                  <div className="mb-6 transform group-hover:scale-110 transition-transform">
+                    {insight.icon}
                   </div>
-                  <h3 className="text-xl font-bold">{item.topic}</h3>
-                  <p className="text-muted-foreground leading-relaxed italic">"{item.insight}"</p>
+                  <h3 className="text-lg font-bold mb-3">{insight.topic}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{insight.insight}</p>
                 </div>
               ))}
             </div>
@@ -578,21 +567,18 @@ export default function Home() {
         </section>
 
         {/* Fun Section */}
-        <section id="fun" className="py-24 bg-primary text-primary-foreground overflow-hidden relative">
-          <div className="absolute top-0 right-0 p-8 opacity-10">
-            <PartyPopper className="w-64 h-64" />
-          </div>
-          <div className="container relative z-10 text-center space-y-8">
-            <h2 className="text-3xl md:text-4xl font-bold">Just for Fun</h2>
-            <div className="max-w-2xl mx-auto min-h-[100px] flex items-center justify-center">
-              <p className="text-2xl md:text-3xl font-medium italic animate-fade-in" key={randomFact}>
+        <section id="fun" className="py-24 relative overflow-hidden">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-primary/5 blur-[120px] -z-10" />
+          <div className="container max-w-4xl text-center space-y-8">
+            <h2 className="text-3xl font-bold">Beyond the Code</h2>
+            <div className="p-8 md:p-12 rounded-3xl bg-card border border-border shadow-xl space-y-6">
+              <div className="text-4xl">💡</div>
+              <p className="text-xl md:text-2xl font-medium italic text-primary leading-relaxed">
                 "{randomFact}"
               </p>
-            </div>
-            <div className="flex justify-center gap-2">
-              <div className="w-2 h-2 rounded-full bg-primary-foreground/20" />
-              <div className="w-2 h-2 rounded-full bg-primary-foreground/60" />
-              <div className="w-2 h-2 rounded-full bg-primary-foreground/20" />
+              <div className="pt-4">
+                <p className="text-xs text-muted-foreground uppercase tracking-widest font-bold">Random Developer Insight</p>
+              </div>
             </div>
           </div>
         </section>
@@ -652,6 +638,39 @@ export default function Home() {
           </div>
         </section>
       </main>
+
+      {/* Jek Cat Mascot */}
+      <div 
+        className="fixed bottom-6 right-6 z-[100] group"
+        onMouseEnter={() => setIsCatDancing(true)}
+        onMouseLeave={() => setIsCatDancing(false)}
+      >
+        {/* Speech Bubble */}
+        <div className={`absolute bottom-full right-0 mb-4 w-48 p-3 bg-card border border-border rounded-xl shadow-xl transition-all duration-300 origin-bottom-right ${showCatFact ? 'scale-100 opacity-100' : 'scale-0 opacity-0'}`}>
+          <p className="text-xs leading-relaxed italic">"{randomFact}"</p>
+          <div className="absolute top-full right-6 w-3 h-3 bg-card border-r border-b border-border rotate-45 -mt-1.5" />
+        </div>
+
+        {/* The Cat */}
+        <button 
+          onClick={triggerCatFact}
+          className={`relative w-16 h-16 flex items-center justify-center transition-transform duration-300 ${isCatDancing ? 'scale-110' : 'scale-100 hover:scale-105'}`}
+          title="Click for a fun fact!"
+        >
+          <div className={`text-4xl transition-all duration-300 ${isCatDancing ? 'animate-bounce' : ''}`}>
+            {isCatDancing ? '🐱' : '😸'}
+          </div>
+          
+          {/* Dancing Sparkles */}
+          {isCatDancing && (
+            <>
+              <div className="absolute -top-2 -left-2 animate-ping text-xs">✨</div>
+              <div className="absolute -top-1 -right-1 animate-pulse text-xs delay-75">✨</div>
+              <div className="absolute -bottom-1 -left-1 animate-pulse text-xs delay-150">✨</div>
+            </>
+          )}
+        </button>
+      </div>
 
       {/* Footer */}
       <footer className="py-8 border-t border-border bg-background">
