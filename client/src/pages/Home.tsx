@@ -702,7 +702,8 @@ export default function Home() {
             className={`relative w-20 h-20 flex items-center justify-center transition-all duration-500 ${isCatDancing || isWalking ? 'scale-110' : 'scale-100 hover:scale-110'}`}
             title={isWalking ? "I'm telling a story!" : "Click to hear my story, Right-click for a fact!"}
           >
-            <div className={`text-5xl transition-all duration-300 ${isCatDancing || isWalking ? 'animate-bounce' : ''} ${isWalking ? '-scale-x-100' : ''}`}>
+            {/* The Cat - Note: isWalking uses normal scale, idle/dancing uses -scale-x-100 to face left (default) */}
+            <div className={`text-5xl transition-all duration-300 ${isCatDancing || isWalking ? 'animate-bounce' : ''} ${isWalking ? '' : '-scale-x-100'}`}>
               {isWalking ? '🐈' : (isCatDancing ? '😸' : '🐱')}
             </div>
             
