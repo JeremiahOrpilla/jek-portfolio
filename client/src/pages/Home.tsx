@@ -243,7 +243,7 @@ export default function Home() {
               Let's Make Sense of the Numbers
             </div>
             <h1 className="text-5xl md:text-7xl font-bold tracking-tight">
-              Hi, I'm <span className="text-primary">Jek</span>. <br />
+              Hi, I'm <span className="text-primary">Jeremiah</span>. <br />
               I build data-driven solutions.
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
@@ -278,21 +278,56 @@ export default function Home() {
         {/* About Section */}
         <section id="about" className="py-24 bg-secondary/50">
           <div className="container">
-            <div className="grid lg:grid-cols-2 gap-16 items-center">
-              <div className="space-y-6">
-                <h2 className="text-3xl md:text-4xl font-bold">About Me</h2>
-                <div className="space-y-4 text-muted-foreground text-lg leading-relaxed">
-                  <p>
-                    I bridge the gap between complex data analysis and practical software engineering. 
-                    With a focus on clarity and efficiency, I develop tools that empower organizations 
-                    to make data-driven decisions.
-                  </p>
-                  <p>
-                    Currently, I serve as a Project Technical Assistant at DOST, where I architect 
-                    dashboards and data pipelines that track and optimize technological upgrades 
-                    for small enterprises.
-                  </p>
+            <div className="grid lg:grid-cols-[1.5fr_1fr] gap-16 items-start">
+              <div className="space-y-8">
+                <div className="space-y-4">
+                  <h2 className="text-3xl md:text-4xl font-bold">About Me</h2>
+                  <div className="space-y-4 text-muted-foreground text-lg leading-relaxed">
+                    <p>
+                      I bridge the gap between complex data analysis and practical software engineering. 
+                      With a focus on clarity and efficiency, I develop tools that empower organizations 
+                      to make data-driven decisions.
+                    </p>
+                    <p>
+                      Currently, I serve as a Project Technical Assistant at DOST, where I architect 
+                      dashboards and data pipelines that track and optimize technological upgrades 
+                      for small enterprises. My work focuses on transforming raw administrative data 
+                      into actionable visual intelligence.
+                    </p>
+                    <p>
+                      I gravitate toward building tools that solve real operational problems. 
+                      Whether it's a searchable knowledge base for government guidelines or a 
+                      real-time financial monitoring system, I believe technology should simplify 
+                      complexity and reduce manual overhead.
+                    </p>
+                    <p>
+                      With a strong foundation in programming (Java, C#) and a passion for modern 
+                      web stacks, I enjoy the full pipeline of development—from architecting 
+                      scalable databases to crafting intuitive user interfaces that tell a story with data.
+                    </p>
+                  </div>
                 </div>
+
+                <div className="space-y-4">
+                  <h3 className="text-xl font-bold">What I Do</h3>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    {[
+                      { icon: <LineChart className="w-5 h-5 text-teal-500" />, title: "Data Analysis & Visualization", desc: "Turning raw datasets into interactive visual stories." },
+                      { icon: <Sheet className="w-5 h-5 text-green-600" />, title: "Spreadsheet Systems", desc: "Building advanced automated tools using Google Sheets." },
+                      { icon: <Code2 className="w-5 h-5 text-blue-500" />, title: "Full-Stack Development", desc: "Creating high-performance web applications." },
+                      { icon: <Database className="w-5 h-5 text-indigo-500" />, title: "Database Design & SQL", desc: "Architecting efficient and scalable data structures." },
+                    ].map((item, i) => (
+                      <div key={i} className="p-4 rounded-xl border border-border bg-background/50 flex gap-4 items-start">
+                        <div className="p-2 rounded-lg bg-secondary shrink-0">{item.icon}</div>
+                        <div>
+                          <p className="font-bold text-sm">{item.title}</p>
+                          <p className="text-xs text-muted-foreground mt-1">{item.desc}</p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
                 <div className="grid grid-cols-2 gap-4 pt-4">
                   <div className="p-4 rounded-lg bg-background border border-border">
                     <div className="text-primary font-bold text-2xl">2+</div>
