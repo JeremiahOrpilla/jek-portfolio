@@ -679,22 +679,22 @@ export default function Home() {
 
       {/* Jek Cat Mascot */}
       <div 
-        className="fixed bottom-10 z-[100] transition-all duration-1000 ease-linear"
+        className="fixed bottom-12 z-[100] transition-all duration-1000 ease-linear"
         style={{ 
-          // Moved further from the right edge (64px instead of 40px)
-          right: isWalking ? `calc(64px + ${walkProgress}%)` : '64px',
+          // Moved significantly further left to be more "center-right" (20% from the right edge)
+          right: isWalking ? `calc(20% + ${walkProgress}%)` : '20%',
           transform: isWalking ? 'translateX(50%)' : 'none'
         }}
         onMouseEnter={() => !isWalking && setIsCatDancing(true)}
         onMouseLeave={() => !isWalking && setIsCatDancing(false)}
       >
         {/* Speech Bubble */}
-        <div className={`absolute bottom-full mb-4 w-56 p-4 bg-card border border-border rounded-2xl shadow-2xl transition-all duration-500 ${showCatFact ? 'scale-100 opacity-100' : 'scale-0 opacity-0'} ${isWalking ? 'left-1/2 -translate-x-1/2' : 'right-0 md:right-4 origin-bottom-right'}`}>
-          <p className="text-sm leading-relaxed font-medium text-center md:text-left">
+        <div className={`absolute bottom-full mb-4 w-64 p-4 bg-card border border-border rounded-2xl shadow-2xl transition-all duration-500 ${showCatFact ? 'scale-100 opacity-100' : 'scale-0 opacity-0'} left-1/2 -translate-x-1/2`}>
+          <p className="text-sm leading-relaxed font-medium text-center">
             {isWalking ? storySteps[storyIndex] : `"${randomFact}"`}
           </p>
-          {/* Arrow pointing to the cat - positioned specifically to stay over the mascot */}
-          <div className={`absolute top-full w-4 h-4 bg-card border-r border-b border-border rotate-45 -mt-2 ${isWalking ? 'left-1/2 -translate-x-1/2' : 'right-8 md:right-6'}`} />
+          {/* Arrow pointing to the cat - centered under the bubble */}
+          <div className="absolute top-full left-1/2 -translate-x-1/2 w-4 h-4 bg-card border-r border-b border-border rotate-45 -mt-2" />
         </div>
 
         {/* The Cat */}
