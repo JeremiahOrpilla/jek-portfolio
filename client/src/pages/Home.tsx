@@ -192,7 +192,8 @@ export default function Home() {
     let step = 0;
     const interval = setInterval(() => {
       step += 1;
-      setWalkProgress(prev => prev + 20);
+      // Adjusted walk progress to stay within safe bounds (10% to 70% of screen width)
+      setWalkProgress(prev => prev + 15);
       setStoryIndex(step);
       
       if (step >= storySteps.length) {
@@ -678,20 +679,21 @@ export default function Home() {
 
       {/* Jek Cat Mascot */}
       <div 
-        className="fixed bottom-6 z-[100] transition-all duration-1000 ease-linear"
+        className="fixed bottom-10 z-[100] transition-all duration-1000 ease-linear"
         style={{ 
-          right: isWalking ? `${walkProgress}%` : '24px',
+          // Adjusted idle position (right-10 instead of right-6) and walk path (from right-10 to left)
+          right: isWalking ? `calc(40px + ${walkProgress}%)` : '40px',
           transform: isWalking ? 'translateX(50%)' : 'none'
         }}
         onMouseEnter={() => !isWalking && setIsCatDancing(true)}
         onMouseLeave={() => !isWalking && setIsCatDancing(false)}
       >
         {/* Speech Bubble */}
-        <div className={`absolute bottom-full mb-4 w-56 p-4 bg-card border border-border rounded-2xl shadow-2xl transition-all duration-500 ${showCatFact ? 'scale-100 opacity-100' : 'scale-0 opacity-0'} ${isWalking ? 'left-1/2 -translate-x-1/2' : 'right-0 origin-bottom-right'}`}>
-          <p className="text-sm leading-relaxed font-medium">
+        <div className={`absolute bottom-full mb-4 w-56 p-4 bg-card border border-border rounded-2xl shadow-2xl transition-all duration-500 ${showCatFact ? 'scale-100 opacity-100' : 'scale-0 opacity-0'} ${isWalking ? 'left-1/2 -translate-x-1/2' : 'right-0 md:-right-4 origin-bottom-right'}`}>
+          <p className="text-sm leading-relaxed font-medium text-center md:text-left">
             {isWalking ? storySteps[storyIndex] : `"${randomFact}"`}
           </p>
-          <div className={`absolute top-full w-4 h-4 bg-card border-r border-b border-border rotate-45 -mt-2 ${isWalking ? 'left-1/2 -translate-x-1/2' : 'right-8'}`} />
+          <div className={`absolute top-full w-4 h-4 bg-card border-r border-b border-border rotate-45 -mt-2 ${isWalking ? 'left-1/2 -translate-x-1/2' : 'right-8 md:right-12'}`} />
         </div>
 
         {/* The Cat */}
