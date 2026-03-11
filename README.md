@@ -1,9 +1,9 @@
 # Jeremiah Orpilla's Portfolio
 
-A professional, static portfolio website designed for a Data Analyst and Full-Stack Developer. Built with **React**, **Vite**, and **Tailwind CSS**, and optimized for deployment on **Vercel**.
+A professional, interactive portfolio website designed for a **Data Analyst** and **Full-Stack Developer**. Built with **React**, **Vite**, and **Tailwind CSS**, and optimized for deployment on **Vercel**.
 
 ## 🚀 Live Demo
-[View Live Portfolio](https://jek-portfolio-75gkgw6gl-jeks-projects-57ad5317.vercel.app)
+[View Live Portfolio](https://jek-portfolio-zeta.vercel.app)
 
 ## 🛠️ Tech Stack
 - **Frontend**: React 19, Vite 7
@@ -12,6 +12,16 @@ A professional, static portfolio website designed for a Data Analyst and Full-St
 - **Animations**: Framer Motion & Tailwind Animate
 - **Deployment**: Vercel (Static)
 
+## ✨ Key Features
+- **Interactive "Jek Cat" Narrator**: A unique, walking cat mascot that tells my professional story through interactive speech bubbles.
+- **Project Showcase**: Detailed cards for my major projects at DOST and beyond, including:
+  - **SETUP Guru**: Knowledge Management App for government guidelines.
+  - **SETUP Monitoring Dashboard**: Real-time project tracking and impact assessment platform.
+  - **SETUP Collections Monitoring**: Advanced Google Sheets-based financial tracking system.
+  - **SETUP Annual Collections Report**: Multi-year performance analytics dashboard.
+- **Technical Toolkit**: A visual representation of my proficiency in programming (Java, C#), data analysis, and advanced spreadsheet systems.
+- **Academic Background**: Highlights my BS in Information Technology (Major in Programming) from Cagayan State University and my Meritorious Award.
+
 ## 📁 Project Structure
 The repository follows a clean, purely static structure optimized for Vercel:
 
@@ -19,7 +29,7 @@ The repository follows a clean, purely static structure optimized for Vercel:
 jek-portfolio/
 ├── public/             # Static assets (images, icons, etc.)
 ├── src/                # Application source code
-│   ├── components/     # Reusable UI components (Shadcn UI)
+│   ├── components/     # Reusable UI components
 │   ├── contexts/       # Theme and state management
 │   ├── hooks/          # Custom React hooks
 │   ├── lib/            # Utility functions
