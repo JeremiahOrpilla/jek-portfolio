@@ -161,7 +161,7 @@ export default function Home() {
 
   const socialLinks = [
     { name: 'GitHub', url: 'https://github.com/JeremiahOrpilla', icon: <Github className="w-5 h-5" /> },
-    { name: 'LinkedIn', url: 'https://linkedin.com/in/jeremiah-orpilla-b612322b7', icon: <Linkedin className="w-5 h-5" /> },
+    { name: 'LinkedIn', url: 'www.linkedin.com/in/jeremiah-orpilla-b612322b7', icon: <Linkedin className="w-5 h-5" /> },
     { name: 'Facebook', url: 'https://facebook.com/jeremiahorpilla00', icon: <Facebook className="w-5 h-5" /> },
     { name: 'Instagram', url: 'https://instagram.com/jekcatsu', icon: <Instagram className="w-5 h-5" /> },
     { name: 'Email', url: 'mailto:jeremiahorpilla00@gmail.com', icon: <Mail className="w-5 h-5" /> },
