@@ -151,8 +151,7 @@ export default function Home() {
   ];
 
   const funFacts = [
-    'I once debugged a production issue for 3 hours only to find a missing semicolon.',
-    'My favorite weekend activity is exploring new data visualization libraries.',
+    'Part developer, part analyst, part tech support—basically a cat with 9 lives, except each life is a different job role in the same day.',
     'I have written SQL queries that are more complex than some of my college essays.',
     'Pandas is my most-used library, and we have a love-hate relationship.',
     'I believe a well-designed dashboard is a work of art.',
